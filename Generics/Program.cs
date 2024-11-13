@@ -17,8 +17,27 @@
             MultipleGenerics<int, string> Tagers = new MultipleGenerics<int,string>(1, "Uesli");
             Console.WriteLine($"{Tagers.FirstVal},{Tagers.SecondVal}");
 
+            Logger log = new Logger();
+
+            log.Log<int>(12);
+            log.Log<string>("Uesli");
+
+            //Constraints<Box> content = new Constraints<Box>();
+
+            Products<Item> product = new Products<Item>();
+            var itm = new Item();
+            product.addItems(itm);
+
             Console.WriteLine($"{content.Value},Name:{strContent.Value}");
             Console.ReadLine();
         }
+
+
+        class Item : IProducts
+        {
+            public int id { get; }
+        }
+
+
     }
 }
